@@ -60,7 +60,7 @@
             image_display.innerHTML = '';
             if (typeof(result.data.body) == 'undefined'){
               console.log(result)
-               image_display.innerHTML += 'Sorry, there is no matching image!';
+               image_display.innerHTML += 'Could not find image matching your query';
             }
             else{
                console.log(result)
