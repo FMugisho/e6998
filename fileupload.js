@@ -32,6 +32,7 @@ window.onload = function() {
 
   sendqbtn.onclick = function() {
       var input = $("#q").val();
+      // TODO FMugisho - clean up the search bar here
       console.log(input)
       console.log('processing your input')
 
