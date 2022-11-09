@@ -1,3 +1,6 @@
+const bucketName = "photo-image-bucket-2";
+const apiKey = "H9AHKTjE2W2XG3H1eZ8kO9L9II7O3KKU19iwwiKf";
+
 window.onload = function() {
   // var image_upload = document.getElementById('image_upload');
   var sendbtn = document.getElementById('submit');
@@ -19,7 +22,7 @@ window.onload = function() {
       let config = {
           headers: {
               'Content-Type': 'multipart/form-data; boundary=${data._boundary}',
-              "X-Api-Key": "H9AHKTjE2W2XG3H1eZ8kO9L9II7O3KKU19iwwiKf"
+              "X-Api-Key": apiKey
           }
       }; //添加请求头
 
