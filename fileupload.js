@@ -1,6 +1,6 @@
 const bucketName = "photo-image-bucket-2";
 const apiKey = "H9AHKTjE2W2XG3H1eZ8kO9L9II7O3KKU19iwwiKf";
-const apiEndPoint = "https://4bai8kyq56.execute-api.us-east-1.amazonaws.com/v1"
+const apiEndPoint = "https://4bai8kyq56.execute-api.us-east-1.amazonaws.com/v1";
 
 window.onload = function() {
   // var image_upload = document.getElementById('image_upload');
