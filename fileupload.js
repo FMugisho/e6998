@@ -15,10 +15,11 @@ window.onload = function() {
       // files is a FileList object (similar to NodeList)
       var file = fileInput.files[0];
       console.log(file)
+      // "X-Api-Key": "LEX4Wft4ZNaCF3yFeEb1caGD1Ha9o6ZxcrlqY8gf" // old api key
       let config = {
           headers: {
               'Content-Type': 'multipart/form-data; boundary=${data._boundary}',
-              "X-Api-Key": "LEX4Wft4ZNaCF3yFeEb1caGD1Ha9o6ZxcrlqY8gf"
+              "X-Api-Key": "H9AHKTjE2W2XG3H1eZ8kO9L9II7O3KKU19iwwiKf"
           }
       }; //添加请求头
 
