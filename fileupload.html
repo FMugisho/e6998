@@ -33,6 +33,34 @@
         <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
         <script type="text/javascript" src="apigClient.js"></script>
 
+        <style>
+			/* CSS comes here */
+			body {
+			    font-family: arial;
+			}
+			button {
+			    padding:10px;
+			    background-color:#6a67ce;
+			    color: #FFFFFF;
+			    border: 0px;
+			    cursor:pointer;
+			    border-radius: 5px;
+			}
+			#output {
+			    background-color:#F9F9F9;
+			    padding:10px;
+			    width: 100%;
+			    margin-top:20px;
+			    line-height:30px;
+			}
+			.hide {
+			    display:none;
+			}
+			.show {
+			    display:block;
+			}
+		</style>
+
 
     </head>
     <body>
@@ -47,7 +75,12 @@
                   <ul class="navbar-nav mr-auto"></ul>
                 <!-- Addition for navbar-->
                 <div class="form-inline my-2 my-lg-0">
-                    <button id="submitspeech" class="btn btn-success my-2 my-sm-0" type="submit" value="submit">Speak</button>
+                    <button id="submitspeech" class="btn btn-success my-2 my-sm-0" type="submit" value="submit" onclick="runSpeechRecognition()">Speak</button>
+                    <!-- 
+                    <button id="submitspeech" class="btn btn-success my-2 my-sm-0" type="submit" value="submit" onclick="runSpeechRecognition()">Speak</button>
+                    <span id="action"></span>
+                    <div id="output" class="hide"></div>
+                    -->
 
                 </div>
                 <div class="form-inline my-2 my-lg-0">
