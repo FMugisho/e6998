@@ -1,5 +1,6 @@
 const bucketName = "photo-image-bucket-2";
 const apiKey = "H9AHKTjE2W2XG3H1eZ8kO9L9II7O3KKU19iwwiKf";
+const apiEndPoint = "https://4bai8kyq56.execute-api.us-east-1.amazonaws.com/v1"
 
 window.onload = function() {
   // var image_upload = document.getElementById('image_upload');
@@ -26,7 +27,11 @@ window.onload = function() {
           }
       }; //添加请求头
 
-      url = 'https://by8eqzalsj.execute-api.us-east-1.amazonaws.com/test/upload/' + file.name
+      // url = 'https://by8eqzalsj.execute-api.us-east-1.amazonaws.com/test/upload/' + file.name // old
+      // url = 'https://by8eqzalsj.execute-api.us-east-1.amazonaws.com/test/upload/' + bucketName + file.name
+      
+      url = apiEndPoint + "/upload/" + bucketName + "/" + file.name
+
       axios.put(url, file, config).then(response => { //这里的/xapi/upimage为接口
           console.log(response.data)
 
@@ -41,7 +46,7 @@ window.onload = function() {
       console.log('processing your input')
 
       var apigClient = apigClientFactory.newClient({
-          apiKey: 'LEX4Wft4ZNaCF3yFeEb1caGD1Ha9o6ZxcrlqY8gf'
+          apiKey: apiKey
       });
       var params = {
           //This is where any header, path, or querystring request params go. The key is the parameter named as defined in the API
