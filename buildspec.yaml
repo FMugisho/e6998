@@ -8,7 +8,7 @@ phases:
          - npm install
    build:
      commands:
-         - npm run build
+         - echo "Creating frontend code zip"
 artifacts:
    files:
          - '**/*'
