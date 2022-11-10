@@ -8,18 +8,21 @@ window.onload = function() {
   var image_display = document.getElementById('image_display');
   sendbtn.onclick = function() {
       var input = $("#fileupload").val();
-      console.log(input)
-      console.log('uploading file.....')
-
       // fileInput is an HTMLInputElement: <input type="file" id="myfileinput" multiple>
       var fileInput = document.getElementById("fileupload");
-
+      var customLabels = $("#customlabels").val();
+      customLabels = customLabels.trim();
+      console.log(input)
+      console.log(customLabels)
+      console.log('uploading file.....')
       // files is a FileList object (similar to NodeList)
       var file = fileInput.files[0];
       console.log(file)
 
       url = apiEndPoint + "/upload/" + bucketName + "/" + file.name
-      putStuff(url, file)
+      putStuff(url, file, customLabels)
+      $("#fileupload").val('') // cleanup fileupload field
+      $("#customlabels").val('') // cleanup customlabels field
   }
 
 
@@ -28,6 +31,7 @@ window.onload = function() {
       // TODO FMugisho - clean up the search bar here
       console.log(input)
       console.log('processing your input')
+      $("#q").val('') // cleaning up query space
 
       var apigClient = apigClientFactory.newClient({
           apiKey: apiKey
@@ -109,13 +113,13 @@ function runSpeechRecognition() {
   return transcript
 }
 
-async function putStuff(url, file){  
+async function putStuff(url, file, customLabels){  
   try {
     const response = await fetch(url, {
       method: "PUT",
       headers: {
-        "Content-Type": "image/png",
-        "x-amz-meta-customLabels": ""
+        "Content-Type": file.type,
+        "x-amz-meta-customLabels": customLabels
       },
       body: file
     });
