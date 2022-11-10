@@ -8,15 +8,14 @@ window.onload = function() {
   var image_display = document.getElementById('image_display');
   sendbtn.onclick = function() {
       var input = $("#fileupload").val();
-      // fileInput is an HTMLInputElement: <input type="file" id="myfileinput" multiple>
       var fileInput = document.getElementById("fileupload");
       var customLabels = $("#customlabels").val();
       customLabels = customLabels.trim();
       console.log(input)
       console.log(customLabels)
       console.log('uploading file.....')
-      // files is a FileList object (similar to NodeList)
-      var file = fileInput.files[0];
+
+      var file = fileInput.files[0]; // files is a FileList object (similar to NodeList)
       console.log(file)
 
       url = apiEndPoint + "/upload/" + bucketName + "/" + file.name
