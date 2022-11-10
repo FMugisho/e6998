@@ -17,13 +17,7 @@ window.onload = function() {
       // files is a FileList object (similar to NodeList)
       var file = fileInput.files[0];
       console.log(file)
-      let config = {
-          headers: {
-              'Content-Type': 'multipart/form-data; boundary=${data._boundary}',
-              "X-Api-Key": apiKey
-          }
-      };
-      
+
       url = apiEndPoint + "/upload/" + bucketName + "/" + file.name
       putStuff(url, file)
   }
@@ -96,11 +90,9 @@ function runSpeechRecognition() {
 
   // This runs when the speech recognition service starts
   recognition.onstart = function() {
-      // action.innerHTML = "<small>listening, please speak...</small>";
   };
 
   recognition.onspeechend = function() {
-      // action.innerHTML = "<small>stopped listening, hope you are done...</small>";
       recognition.stop();
   }
 
@@ -108,8 +100,6 @@ function runSpeechRecognition() {
   recognition.onresult = function(event) {
       var q = document.getElementById("q"); // addition
       transcript = event.results[0][0].transcript;
-      var confidence = event.results[0][0].confidence;
-      // output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence * 100 + "%";
       q.value = transcript;
       output.classList.remove("hide");
   };
@@ -124,7 +114,8 @@ async function putStuff(url, file){
     const response = await fetch(url, {
       method: "PUT",
       headers: {
-        "Content-Type": "image/png"
+        "Content-Type": "image/png",
+        "x-amz-meta-customLabels": ""
       },
       body: file
     });
